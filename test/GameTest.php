@@ -34,9 +34,23 @@ class GameTest extends TestCase
         $game->play([3,5], [0,0]);
     }
 
+    public function testPawnDistance()
+    {
+        $this->expectExceptionMessage('Impossible move');
+        $game = new Game();
+        $game->play([2,2], [3,3]);
+    }
+
+    public function testPawnDistance2()
+    {
+        $this->expectExceptionMessage('Impossible move');
+        $game = new Game();
+        $game->play([1,4], [3,3]);
+    }
+
     public function testNotTakePawn()
     {
-        $this->expectExceptionMessage('Impossible move, you should take a pawn');
+        $this->expectExceptionMessage('Impossible move');
         $game = new Game();
         $game->play([6,3], [3,3]);
     }
